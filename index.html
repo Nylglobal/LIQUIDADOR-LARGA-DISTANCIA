@@ -1,0 +1,824 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Viajes</title>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;width:100%;}
+.tg td, .tg th {
+  border-color:black;
+  border-style:solid;
+  border-width:1px;
+  font-family:Arial, sans-serif;
+  font-size:14px;
+  overflow:hidden;
+  padding:10px 5px;
+  word-break:normal;
+}
+.tg .tg-zlqz, .tg .tg-6e8n {background-color:#c0c0c0; font-weight:bold;}
+.tg .tg-lzqt, .tg .tg-nakj {background-color:#656565; color:#ffffff; font-weight:bold;}
+.tg .tg-xbtn, .tg .tg-da3b {background-color:#0C1447; color:#ffffff; font-weight:bold;}
+.tg .tg-llyw, .tg .tg-0pky {text-align:left;}
+.input-ajustado {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+@media print {
+    body {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .tg { 
+        width: 100%; 
+        page-break-before: avoid !important;
+        page-break-after: avoid !important;
+        page-break-inside: avoid !important;
+    }
+
+    * {
+        -webkit-print-color-adjust: exact !important; /* Mantiene los colores */
+        color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    @page {
+        size: auto; /* Hace que el contenido se adapte al tamaño total */
+        margin: 0; /* Quita los márgenes de impresión */
+    }
+}
+
+
+
+
+</style>
+
+</head>
+<body>
+ <table class="tg"  style="table-layout: fixed; width: 827px; margin-left: auto; margin-right: auto;"><colgroup>
+<col style="width: 240px">
+<col style="width: 172px">
+<col style="width: 240px">
+<col style="width: 175px">
+</colgroup>
+<tr>
+  <th class="tg-xbtn" colspan="4">
+    <img src="T1.png" alt="Inicio de Viaje" style="width: 100%; height: auto;">
+  </th>
+</tr>
+  <tr>
+    <th class="tg-xbtn" colspan="4">INICIO DE VIAJE</th>
+  </tr>
+<tbody>
+   <tr>
+    <td class="tg-lzqt">VIAJE</td>
+    <td class="tg-lzqt">FECHA</td>
+    <td class="tg-lzqt">ORIGEN</td>
+    <td class="tg-lzqt">DESTINO</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><input type="text" id="input1" class="input-ajustado"></td>
+    <td class="tg-0pky"><input type="date" id="input2" class="input-ajustado"></td>
+    <td class="tg-0pky"><input type="text" id="input3" class="input-ajustado"></td>
+    <td class="tg-0pky"><input type="text" id="input4" class="input-ajustado"></td>
+  </tr>
+  <tr>
+    <td class="tg-lzqt">CHOFER</td>
+    <td class="tg-lzqt">UNIDAD</td>
+    <td class="tg-lzqt">EQUIPO</td>
+    <td class="tg-lzqt">TIPO DE VIAJE</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">
+      <select id="input6" class="input-ajustado">
+        <option value="BURGUEÑO">BURGUEÑO</option>
+        <option value="GARAY">GARAY</option>
+        <option value="SILVERO">SILVERO</option>
+      </select>
+    </td>
+    <td class="tg-0pky">
+      <select id="input7" class="input-ajustado">
+        <option value="KRG639">KRG634</option>
+        <option value="KRG639">AH063ZG</option>
+        <option value="KRG639">AH160MF</option>
+      </select>
+    </td>
+    <td class="tg-0pky">
+      <select id="input8" class="input-ajustado">
+        <option value="KRG639">AD924QI</option>
+        <option value="KRG639">NINGUNO</option>
+      </select>
+    </td>
+    <td class="tg-0pky">
+      <select id="input9" class="input-ajustado">
+        <option value="IDA">IDA</option>
+        <option value="VUELTA">VUELTA</option>
+        <option value="COMPLETO">COMPLETO</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td class="tg-xbtn" colspan="4">LIQUIDACION</td>
+  </tr>
+<tr>
+  <td class="tg-6e8n" colspan="2">TARIFA ($)</td>
+  <td class="tg-0pky" colspan="2">
+    <input type="number" id="input10" step="0.01"class="input-ajustado" />
+  </td>
+</tr>
+<tr>
+  <td class="tg-6e8n" colspan="2">--- USO INTERNO ---</td>
+  <td class="tg-0pky" colspan="2">
+    <input type="number" id="input18" step="0.01" class="input-ajustado"  disabled />
+  </td>
+</tr>
+<tr>
+  <td class="tg-6e8n" colspan="2">IMP. IIBB ($)</td>
+  <td class="tg-0pky" colspan="2">
+    <input type="number" id="input11" step="0.01"class="input-ajustado" />
+  </td>
+</tr>
+<tr>
+  <td class="tg-6e8n" colspan="2">IMP. GCIAS ($)</td>
+  <td class="tg-0pky" colspan="2">
+    <input type="number" id="input12" step="0.01"class="input-ajustado" />
+  </td>
+</tr>
+<tr>
+  <td class="tg-6e8n" colspan="2">ADELANTO EFECTIVO ($)</td>
+  <td class="tg-0pky" colspan="2">
+    <input type="number" id="input13" step="0.01"disabled />
+  </td>
+</tr>
+<tr>
+  <td class="tg-6e8n" colspan="2">ADELANTO CHEQUES ($)</td>
+  <td class="tg-0pky" colspan="2">
+    <input type="number" id="input14" step="0.01" class="input-ajustado" disabled />
+  </td>
+</tr>
+<tr>
+  <td class="tg-6e8n" colspan="2">GASOIL INICIAL ($)</td>
+  <td class="tg-0pky" colspan="2">
+    <input type="number" id="input15" step="0.01" class="input-ajustado" disabled />
+  </td>
+</tr>
+<tr>
+  <td class="tg-6e8n" colspan="2">LIQUIDACIÓN NETA ($)</td>
+  <td class="tg-0pky" colspan="2">
+    <input type="number" id="input16" step="0.01" class="input-ajustado"  disabled />
+  </td>
+</tr>
+<tr id="comision">
+  <td class="tg-6e8n" colspan="2">RECAUDADO</td>
+  <td class="tg-0pky" colspan="2">
+    <input type="number" id="input5" step="0.01" class="input-ajustado"  disabled />
+  </td>
+</tr>
+
+
+<tr>
+  <td class="tg-xbtn" colspan="4">ADICIONAL</td>
+</tr>
+<tr>
+  <td class="tg-6e8n" colspan="2">ADICIONAL NETO ($)</td>
+  <td class="tg-0pky" colspan="2">
+    <input type="number" id="input122" step="0.01" class="input-ajustado"  />
+  </td>
+</tr>
+<tr>
+  <td class="tg-6e8n" colspan="2">IVA ADICIONAL($)</td>
+  <td class="tg-0pky" colspan="2">
+    <input type="number" id="input123" step="0.01" class="input-ajustado"  disabled />
+  </td>
+</tr>
+<tr>
+  <td class="tg-6e8n" colspan="2">TOTAL ADICIONAL($)</td>
+  <td class="tg-0pky" colspan="2">
+    <input type="number" id="input124" step="0.01" class="input-ajustado" disabled />
+  </td>
+</tr>
+ <tr>
+    <td class="tg-xbtn" colspan="4">ADELANTO EFECTIVO</td>
+  </tr>
+  <tr>
+    <td class="tg-lzqt">CLASE</td>
+    <td class="tg-lzqt">MONTO ($)</td>
+    <td class="tg-lzqt">ESTADO</td>
+    <td class="tg-lzqt">DEVOLUCIÓN</td>
+  </tr>
+  <tr>
+    <td class="tg-zlqz">CAJA EFECTIVO</td>
+    <td class="tg-0pky"><input type="number" id="input19" class="input-ajustado" step="0.01"></td>
+    <td class="tg-0pky">
+      <select id="input20" class="input-ajustado">
+        <option value="EMITIDO">EMITIDO</option>
+        <option value="DEVUELTO">DEVUELTO</option>
+      </select>
+    </td>
+    <td class="tg-0pky"><input type="number" id="input21" class="input-ajustado" step="0.01" disabled></td>
+  </tr>
+  <tr id="noUsar">
+    <td class="tg-zlqz">----NO USAR----</td>
+    <td class="tg-0pky"><input type="number" id="input22" class="input-ajustado" step="0.01"></td>
+    <td class="tg-0pky">
+      <select id="input23" class="input-ajustado">
+        <option value="EMITIDO">EMITIDO</option>
+        <option value="DEVUELTO">DEVUELTO</option>
+      </select>
+    </td>
+    <td class="tg-0pky"><input type="number" id="input24" class="input-ajustado" step="0.01" disabled></td>
+  </tr>
+  <tr>
+    <td class="tg-zlqz">ADELANTO EN RUTA</td>
+    <td class="tg-0pky"><input type="number" id="input25" class="input-ajustado" step="0.01"></td>
+    <td class="tg-0pky">
+      <select id="input26" class="input-ajustado">
+        <option value="EMITIDO">EMITIDO</option>
+        <option value="DEVUELTO">DEVUELTO</option>
+      </select>
+    </td>
+    <td class="tg-0pky"><input type="number" id="input27" class="input-ajustado" step="0.01" disabled></td>
+  </tr>
+  <tr>
+    <td class="tg-zlqz">ADELANTO INTERNO</td>
+    <td class="tg-0pky"><input type="number" id="input28" class="input-ajustado" step="0.01"></td>
+    <td class="tg-0pky">
+      <select id="input29" class="input-ajustado">
+        <option value="EMITIDO">EMITIDO</option>
+        <option value="DEVUELTO">DEVUELTO</option>
+      </select>
+    </td>
+    <td class="tg-0pky"><input type="number" id="input30" class="input-ajustado" step="0.01" disabled></td>
+  </tr>
+  <tr>
+    <td class="tg-zlqz">ADELANTO PERSONAL</td>
+    <td class="tg-0pky"><input type="number" id="input31" class="input-ajustado" step="0.01"></td>
+    <td class="tg-0pky">
+      <select id="input32" class="input-ajustado">
+        <option value="EMITIDO">EMITIDO</option>
+        <option value="DEVUELTO">DEVUELTO</option>
+      </select>
+    </td>
+    <td class="tg-0pky"><input type="number" id="input33" class="input-ajustado" step="0.01" disabled></td>
+  </tr>
+  <tr>
+    <td class="tg-lzqt">TOTAL ADELANTOS</td>
+    <td class="tg-0pky"><input type="number" id="input34" class="input-ajustado" step="0.01" disabled></td>
+    <td class="tg-nakj">TOTAL DEVOLUCIONES</td>
+    <td class="tg-0pky"><input type="number" id="input35" class="input-ajustado" step="0.01" disabled></td>
+  </tr>
+  <tr>
+    <td class="tg-xbtn" colspan="4">ADELANTO CHEQUES</td>
+  </tr>
+<tr>
+    <td class="tg-lzqt">NUMERO</td>
+    <td class="tg-lzqt">MONTO ($)</td>
+    <td class="tg-lzqt">ESTADO</td>
+    <td class="tg-lzqt">DEVOLUCIÓN</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><input type="text" id="input36" class="input-ajustado"></td>
+    <td class="tg-0pky"><input type="number" id="input37" class="input-ajustado" step="0.01"></td>
+    <td class="tg-0pky">
+      <select id="input38" class="input-ajustado">
+        <option value="EMITIDO">EMITIDO</option>
+        <option value="DEVUELTO">DEVUELTO</option>
+      </select>
+    </td>
+    <td class="tg-0pky"><input type="number" id="input39" class="input-ajustado" step="0.01" disabled></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><input type="text" id="input40" class="input-ajustado"></td>
+    <td class="tg-0pky"><input type="number" id="input41" class="input-ajustado" step="0.01"></td>
+    <td class="tg-0pky">
+      <select id="input42" class="input-ajustado">
+        <option value="EMITIDO">EMITIDO</option>
+        <option value="DEVUELTO">DEVUELTO</option>
+      </select>
+    </td>
+    <td class="tg-0pky"><input type="number" id="input43" class="input-ajustado" step="0.01" disabled></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><input type="text" id="input44" class="input-ajustado"></td>
+    <td class="tg-0pky"><input type="number" id="input45" class="input-ajustado" step="0.01"></td>
+    <td class="tg-0pky">
+      <select id="input46" class="input-ajustado">
+        <option value="EMITIDO">EMITIDO</option>
+        <option value="DEVUELTO">DEVUELTO</option>
+      </select>
+    </td>
+    <td class="tg-0pky"><input type="number" id="input47" class="input-ajustado" step="0.01" disabled></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><input type="text" id="input48" class="input-ajustado"></td>
+    <td class="tg-0pky"><input type="number" id="input49" class="input-ajustado" step="0.01"></td>
+    <td class="tg-0pky">
+      <select id="input50" class="input-ajustado">
+        <option value="EMITIDO">EMITIDO</option>
+        <option value="DEVUELTO">DEVUELTO</option>
+      </select>
+    </td>
+    <td class="tg-0pky"><input type="number" id="input51" class="input-ajustado" step="0.01" disabled></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><input type="text" id="input52" class="input-ajustado"></td>
+    <td class="tg-0pky"><input type="number" id="input53" class="input-ajustado" step="0.01"></td>
+    <td class="tg-0pky">
+      <select id="input54" class="input-ajustado">
+        <option value="EMITIDO">EMITIDO</option>
+        <option value="DEVUELTO">DEVUELTO</option>
+      </select>
+    </td>
+    <td class="tg-0pky"><input type="number" id="input55" class="input-ajustado" step="0.01" disabled></td>
+  </tr>
+  <tr>
+    <td class="tg-lzqt">TOTAL ADELANTOS CHEQUES</td>
+    <td class="tg-0pky"><input type="number" id="input56" class="input-ajustado" step="0.01" disabled></td>
+    <td class="tg-lzqt">TOTAL DEVOLUCIÓN CHEQUES</td>
+    <td class="tg-0pky"><input type="number" id="input57" class="input-ajustado" step="0.01" disabled></td>
+  </tr>
+  <tr>
+    <td class="tg-xbtn" colspan="4">CARGAS DE COMBUSTIBLE</td>
+  </tr>
+  <tr>
+    <td class="tg-lzqt">FECHA</td>
+    <td class="tg-lzqt">LITROS</td>
+    <td class="tg-lzqt">MONTO $</td>
+    <td class="tg-lzqt">COMPROBANTE</td>
+  </tr>
+  <tr>
+    <td class="tg-llyw">CARGA INICIAL</td>
+    <td class="tg-0pky"><input type="number" id="input58" class="input-ajustado" step="0.01"></td>
+    <td class="tg-0pky"><input type="number" id="input59" class="input-ajustado" step="0.01"></td>
+    <td class="tg-0pky"><input type="text" id="input60" class="input-ajustado"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><input type="date" id="input61" class="input-ajustado"></td>
+    <td class="tg-0pky"><input type="number" id="input62" class="input-ajustado" step="0.01"></td>
+    <td class="tg-0pky"><input type="number" id="input63" class="input-ajustado" step="0.01"></td>
+    <td class="tg-0pky"><input type="text" id="input64" class="input-ajustado"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><input type="date" id="input65" class="input-ajustado"></td>
+    <td class="tg-0pky"><input type="number" id="input66" class="input-ajustado" step="0.01"></td>
+    <td class="tg-0pky"><input type="number" id="input67" class="input-ajustado" step="0.01"></td>
+    <td class="tg-0pky"><input type="text" id="input68" class="input-ajustado"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><input type="date" id="input69" class="input-ajustado"></td>
+    <td class="tg-0pky"><input type="number" id="input70" class="input-ajustado" step="0.01"></td>
+    <td class="tg-0pky"><input type="number" id="input71" class="input-ajustado" step="0.01"></td>
+    <td class="tg-0pky"><input type="text" id="input72" class="input-ajustado" disabled></td>
+  </tr>
+  <tr>
+    <td class="tg-lzqt">TOTAL LITROS COMBUSTIBLE</td>
+    <td class="tg-0pky" colspan="3"><input type="number" id="input73" class="input-ajustado" disabled></td>
+  </tr>
+  <tr>
+    <td class="tg-lzqt">TOTAL GASTOS COMBUSTIBLE</td>
+    <td class="tg-0pky" colspan="3"><input type="number" id="input74" class="input-ajustado" disabled></td>
+  </tr>
+  <tr>
+    <td class="tg-xbtn" colspan="4">GASTOS DE VIAJE</td>
+  </tr>
+<tr>
+    <td class="tg-lzqt">TIPO</td>
+    <td class="tg-lzqt">MONTO</td>
+    <td class="tg-lzqt" colspan="2">DETALLE</td>
+  </tr>
+  <tr>
+    <td class="tg-6e8n">PEAJES</td>
+    <td class="tg-0pky"><input type="number" id="input79" class="input-ajustado" step="0.01"></td>
+    <td class="tg-0pky" colspan="2"><input type="text" id="input80" class="input-ajustado"></td>
+  </tr>
+  <tr>
+    <td class="tg-6e8n">REPUESTOS</td>
+    <td class="tg-0pky"><input type="number" id="input81" class="input-ajustado" step="0.01"></td>
+    <td class="tg-0pky" colspan="2"><input type="text" id="input82" class="input-ajustado"></td>
+  </tr>
+  <tr>
+    <td class="tg-6e8n">LAVADERO</td>
+    <td class="tg-0pky"><input type="number" id="input83" class="input-ajustado" step="0.01"></td>
+    <td class="tg-0pky" colspan="2"><input type="text" id="input84" class="input-ajustado"></td>
+  </tr>
+  <tr>
+    <td class="tg-6e8n">FERRETERIA</td>
+    <td class="tg-0pky"><input type="number" id="input85" class="input-ajustado" step="0.01"></td>
+    <td class="tg-0pky" colspan="2"><input type="text" id="input86" class="input-ajustado"></td>
+  </tr>
+  <tr>
+    <td class="tg-6e8n">OTRO</td>
+    <td class="tg-0pky"><input type="number" id="input87" class="input-ajustado" step="0.01"></td>
+    <td class="tg-0pky" colspan="2"><input type="text" id="input88" class="input-ajustado"></td>
+  </tr>
+  <tr>
+    <td class="tg-6e8n">OTRO</td>
+    <td class="tg-0pky"><input type="number" id="input89" class="input-ajustado" step="0.01"></td>
+    <td class="tg-0pky" colspan="2"><input type="text" id="input90" class="input-ajustado"></td>
+  </tr>
+  <tr>
+    <td class="tg-6e8n">OTRO</td>
+    <td class="tg-0pky"><input type="number" id="input91" class="input-ajustado" step="0.01"></td>
+    <td class="tg-0pky" colspan="2"><input type="text" id="input92" class="input-ajustado"></td>
+  </tr>
+  <tr>
+    <td class="tg-lzqt">TOTAL GASTOS</td>
+    <td class="tg-0pky" colspan="3"><input type="number" id="input93" class="input-ajustado" disabled></td>
+  </tr>
+  <tr>
+    <td class="tg-xbtn" colspan="4">LIQUIDACION CHOFER</td>
+  </tr>
+<tr>
+    <td class="tg-lzqt">TIPO DE LIQUIDACIÓN</td>
+    <td class="tg-lzqt">VALOR X KMS</td>
+    <td class="tg-nakj">KMS</td>
+    <td class="tg-lzqt">TOTAL</td>
+  </tr>
+  <tr>
+    <td class="tg-6e8n">CARGA GENERAL</td>
+    <td class="tg-0pky"><input type="number" id="input94" class="input-ajustado" step="0.01"></td>
+    <td class="tg-0pky"><input type="number" id="input95" class="input-ajustado" step="1"></td>
+    <td class="tg-0pky"><input type="number" id="input96" class="input-ajustado" disabled></td>
+  </tr>
+  <tr>
+    <td class="tg-6e8n">CARGA ADICIONAL</td>
+    <td class="tg-0pky"><input type="number" id="input97" class="input-ajustado" step="0.01" disabled></td>
+    <td class="tg-0pky"><input type="number" id="input98" class="input-ajustado" step="1"></td>
+    <td class="tg-0pky"><input type="number" id="input99" class="input-ajustado" disabled></td>
+  </tr>
+  <tr>
+    <td class="tg-6e8n">CARGA PELIGROSA</td>
+    <td class="tg-0pky"><input type="number" id="input100" class="input-ajustado" step="0.01" disabled></td>
+    <td class="tg-0pky"><input type="number" id="input101" class="input-ajustado" step="1"></td>
+    <td class="tg-0pky"><input type="number" id="input102" class="input-ajustado" disabled></td>
+  </tr>
+  <tr>
+    <td class="tg-6e8n">CARGA AL 10%</td>
+    <td class="tg-0pky"><input type="number" id="input103" class="input-ajustado" step="0.01" disabled></td>
+    <td class="tg-0pky"><input type="number" id="input104" class="input-ajustado" step="1"></td>
+    <td class="tg-0pky"><input type="number" id="input105" class="input-ajustado" disabled></td>
+  </tr>
+  <tr>
+    <td class="tg-6e8n">CARGA AL 20%</td>
+    <td class="tg-0pky"><input type="number" id="input106" class="input-ajustado" step="0.01"></td>
+    <td class="tg-0pky"><input type="number" id="input107" class="input-ajustado" step="1"></td>
+    <td class="tg-0pky"><input type="number" id="input108" class="input-ajustado" disabled></td>
+  </tr>
+  <tr>
+    <td class="tg-lzqt">LIQUIDACION CHOFER</td>
+    <td class="tg-fymr"><input type="number" id="input109" class="input-ajustado" disabled></td>
+    <td class="tg-lzqt">TOTAL KMS RECORRIDOS</td>
+    <td class="tg-fymr"><input type="number" id="input110" class="input-ajustado" disabled></td>
+  </tr>
+   <tr>
+    <td class="tg-lzqt" colspan="2">DESCRIPCIÓN</td>
+    <td class="tg-lzqt" colspan="2">RESULTADO</td>
+  </tr>
+  <tr>
+    <td class="tg-6e8n" colspan="2">LIQUIDACION NETA</td>
+    <td class="tg-0pky" colspan="2"><input type="text" id="input111" class="input-ajustado" readonly /></td>
+  </tr>
+  <tr>
+    <td class="tg-6e8n" colspan="2">ADELANTOS EN EFECTIVO</td>
+    <td class="tg-0pky" colspan="2"><input type="text" id="input112" class="input-ajustado" readonly /></td>
+  </tr>
+  <tr>
+    <td class="tg-6e8n" colspan="2">ADELANTOS EN CHEQUES</td>
+    <td class="tg-0pky" colspan="2"><input type="text" id="input113" class="input-ajustado" readonly /></td>
+  </tr>
+  <tr>
+    <td class="tg-6e8n" colspan="2">DEVOLUCION DE EFECTIVO</td>
+    <td class="tg-0pky" colspan="2"><input type="text" id="input114" class="input-ajustado" readonly /></td>
+  </tr>
+  <tr>
+    <td class="tg-6e8n" colspan="2">DEVOLUCION DE CHEQUES</td>
+    <td class="tg-0pky" colspan="2"><input type="text" id="input115" class="input-ajustado" readonly /></td>
+  </tr>
+  <tr>
+    <td class="tg-6e8n" colspan="2">TICKET COMBUSTIBLE</td>
+    <td class="tg-0pky" colspan="2"><input type="text" id="input116" class="input-ajustado" readonly /></td>
+  </tr>
+  <tr>
+    <td class="tg-6e8n" colspan="2">GASTOS TOTALES</td>
+    <td class="tg-0pky" colspan="2"><input type="text" id="input117" class="input-ajustado" readonly /></td>
+  </tr>
+  <tr>
+    <td class="tg-6e8n" colspan="2">ADICIONAL 3%</td>
+    <td class="tg-0pky" colspan="2"><input type="text" id="input118" class="input-ajustado"  /></td>
+  </tr>
+  <tr>
+    <td class="tg-6e8n" colspan="2">LLEGADA A HORARIO</td>
+    <td class="tg-0pky" colspan="2"><input type="number" id="input119" class="input-ajustado" /></td>
+  </tr>
+  <tr>
+    <td class="tg-6e8n" colspan="2">DESCARGAS</td>
+    <td class="tg-0pky" colspan="2"><input type="text" id="input120" class="input-ajustado" /></td>
+  </tr>
+  <tr>
+    <td class="tg-da3b" colspan="2">TOTAL A COBRAR</td>
+    <td class="tg-0pky" colspan="2"><input type="text" id="input121" class="input-ajustado" readonly /></td>
+  </tr>
+</tbody></table>
+<button onclick="exportarCSV()">Descargar CSV</button>
+    
+<script>
+
+	noUsar.style.display="none";
+	comision.style.display="block";
+
+function calcular() {
+    const input1 = document.getElementById("input1").value; // VIAJE
+    const input2 = document.getElementById("input2").value; // FECHA
+    const input3 = document.getElementById("input3").value; // ORIGEN
+    const input4 = document.getElementById("input4").value; // DESTINO
+    const input6 = document.getElementById("input6").value; // CHOFER
+    const input7 = document.getElementById("input7").value; // UNIDAD
+    const input8 = document.getElementById("input8").value; // EQUIPO
+    const input9 = document.getElementById("input9").value; // TIPO DE VIAJE
+
+
+    // Variables de monto
+    const input19 = parseFloat(document.getElementById('input19').value) || 0;
+    const input22 = parseFloat(document.getElementById('input22').value) || 0;
+    const input25 = parseFloat(document.getElementById('input25').value) || 0;
+    const input28 = parseFloat(document.getElementById('input28').value) || 0;
+    const input31 = parseFloat(document.getElementById('input31').value) || 0;
+    
+    // Variables de estado
+    const input20 = document.getElementById('input20').value;
+    const input23 = document.getElementById('input23').value;
+    const input26 = document.getElementById('input26').value;
+    const input29 = document.getElementById('input29').value;
+    const input32 = document.getElementById('input32').value;
+
+    // Calcular devoluciones
+    const input21 = (input20 === "DEVUELTO") ? input19 : 0;
+    const input24 = (input23 === "DEVUELTO") ? input22 : 0;
+    const input27 = (input26 === "DEVUELTO") ? input25 : 0;
+    const input30 = (input29 === "DEVUELTO") ? input28 : 0;
+    const input33 = (input32 === "DEVUELTO") ? input31 : 0;
+
+    // Mostrar devoluciones en los campos correspondientes
+    document.getElementById('input21').value = input21.toFixed(2);
+    document.getElementById('input24').value = input24.toFixed(2);
+    document.getElementById('input27').value = input27.toFixed(2);
+    document.getElementById('input30').value = input30.toFixed(2);
+    document.getElementById('input33').value = input33.toFixed(2);
+
+    // Calcular totales
+    const totalAdelantos = input19 + input22 + input25 + input28 + input31;
+    const totalDevoluciones = input21 + input24 + input27 + input30 + input33;
+
+    // Mostrar totales en los campos correspondientes
+    document.getElementById('input34').value = totalAdelantos.toFixed(2);
+    document.getElementById('input35').value = totalDevoluciones.toFixed(2);
+
+     // Variables de texto
+    const input36 = document.getElementById('input36').value;
+    const input40 = document.getElementById('input40').value;
+    const input44 = document.getElementById('input44').value;
+    const input48 = document.getElementById('input48').value;
+    const input52 = document.getElementById('input52').value;
+
+    // Variables de monto
+    const input37 = parseFloat(document.getElementById('input37').value) || 0;
+    const input41 = parseFloat(document.getElementById('input41').value) || 0;
+    const input45 = parseFloat(document.getElementById('input45').value) || 0;
+    const input49 = parseFloat(document.getElementById('input49').value) || 0;
+    const input53 = parseFloat(document.getElementById('input53').value) || 0;
+
+    // Variables de estado
+    const input38 = document.getElementById('input38').value;
+    const input42 = document.getElementById('input42').value;
+    const input46 = document.getElementById('input46').value;
+    const input50 = document.getElementById('input50').value;
+    const input54 = document.getElementById('input54').value;
+
+    // Calcular devoluciones
+    const input39 = (input38 === "DEVUELTO") ? input37 : 0;
+    const input43 = (input42 === "DEVUELTO") ? input41 : 0;
+    const input47 = (input46 === "DEVUELTO") ? input45 : 0;
+    const input51 = (input50 === "DEVUELTO") ? input49 : 0;
+    const input55 = (input54 === "DEVUELTO") ? input53 : 0;
+
+    // Mostrar devoluciones en los campos correspondientes
+    document.getElementById('input39').value = input39.toFixed(2);
+    document.getElementById('input43').value = input43.toFixed(2);
+    document.getElementById('input47').value = input47.toFixed(2);
+    document.getElementById('input51').value = input51.toFixed(2);
+    document.getElementById('input55').value = input55.toFixed(2);
+
+    // Calcular totales
+    const totalAdelantosCheques = input37 + input41 + input45 + input49 + input53;
+    const totalDevolucionCheques = input39 + input43 + input47 + input51 + input55;
+
+    // Mostrar totales en los campos correspondientes
+    document.getElementById('input56').value = totalAdelantosCheques.toFixed(2);
+    document.getElementById('input57').value = totalDevolucionCheques.toFixed(2);
+
+    // Variables de litros y monto
+    const input58 = parseFloat(document.getElementById('input58').value) || 0;
+    const input62 = parseFloat(document.getElementById('input62').value) || 0;
+    const input66 = parseFloat(document.getElementById('input66').value) || 0;
+    const input70 = parseFloat(document.getElementById('input70').value) || 0;
+
+    const input59 = parseFloat(document.getElementById('input59').value) || 0;
+    const input63 = parseFloat(document.getElementById('input63').value) || 0;
+    const input67 = parseFloat(document.getElementById('input67').value) || 0;
+    const input71 = parseFloat(document.getElementById('input71').value) || 0;
+
+    // Calcular los totales de litros y gastos
+    const totalLitrosCombustible = input58 + input62 + input66 + input70;
+    const totalGastosCombustible = input63 + input67 + input71;
+
+    // Mostrar los totales en los campos correspondientes
+    document.getElementById('input73').value = totalLitrosCombustible.toFixed(2);
+    document.getElementById('input74').value = totalGastosCombustible.toFixed(2);
+
+     // Variables de monto
+    const input79 = parseFloat(document.getElementById('input79').value) || 0;
+    const input81 = parseFloat(document.getElementById('input81').value) || 0;
+    const input83 = parseFloat(document.getElementById('input83').value) || 0;
+    const input85 = parseFloat(document.getElementById('input85').value) || 0;
+    const input87 = parseFloat(document.getElementById('input87').value) || 0;
+    const input89 = parseFloat(document.getElementById('input89').value) || 0;
+    const input91 = parseFloat(document.getElementById('input91').value) || 0;
+
+    // Calcular el total de gastos
+    const totalGastos = input79 + input81 + input83 + input85 + input87 + input89 + input91;
+
+    // Mostrar el total en el campo correspondiente
+    document.getElementById('input93').value = totalGastos.toFixed(2);
+
+     // Variables de valor por km
+    const input94 = parseFloat(document.getElementById('input94').value) || 0;
+    const input97 = input94; // Carga Adicional igual a Carga General
+    const input100 = input94 * 1.25; // Carga Peligrosa = Carga General + 25%
+    const input103 = input94 * 1.10; // Carga al 10% = Carga General + 10%
+    const input106 = parseFloat(document.getElementById('input106').value) || 0; // Carga al 20%
+
+    // Variables de kms
+    const input95 = parseInt(document.getElementById('input95').value) || 0;
+    const input98 = parseInt(document.getElementById('input98').value) || 0;
+    const input101 = parseInt(document.getElementById('input101').value) || 0;
+    const input104 = parseInt(document.getElementById('input104').value) || 0;
+    const input107 = parseInt(document.getElementById('input107').value) || 0;
+
+    // Variables de total
+    const input96 = input94 * input95;
+    const input99 = input97 * input98;
+    const input102 = input100 * input101;
+    const input105 = input103 * input104;
+    const input108 = input106;
+
+    // Calcular la liquidación chofer (suma de todas las liquidaciones)
+    const input109 = input96 + input99 + input102 + input105 + input108;
+
+    // Calcular el total de km recorridos (suma de todos los totales)
+    const input110 = input95 + input98 + input101 + input104 + input107;
+
+    // Asignar valores a los campos correspondientes
+    document.getElementById('input96').value = input96.toFixed(2);
+    document.getElementById('input99').value = input99.toFixed(2);
+    document.getElementById('input102').value = input102.toFixed(2);
+    document.getElementById('input105').value = input105.toFixed(2);
+    document.getElementById('input108').value = input108.toFixed(2);
+    document.getElementById('input109').value = input109.toFixed(2);
+    document.getElementById('input110').value = input110.toFixed(2);
+
+    document.getElementById('input97').value = input97.toFixed(2);
+    document.getElementById('input100').value = input100.toFixed(2);
+    document.getElementById('input103').value = input103.toFixed(2);
+
+
+// Obtener los valores de los inputs
+const input111 = input109;
+const input112 = totalAdelantos;
+const input113 = totalAdelantosCheques;
+const input114 = totalDevoluciones;
+const input115 = totalDevolucionCheques;
+const input116 = totalGastosCombustible;
+const input117 = totalGastos;
+const input118 = parseFloat(document.getElementById('input118').value) || 0;
+const input119 = parseFloat(document.getElementById('input119').value) || 0;
+const input120 = parseFloat(document.getElementById('input120').value) || 0;
+
+// Calcular el total a cobrar
+const totalACobrar = input111 - input112 - input113 + input114 + input115 + input116 + input117 + input118 + input119 + input120;
+
+// Mostrar el resultado en el input 121
+document.getElementById('input121').value = totalACobrar.toFixed(2); // Dos decimales
+
+// Asignar valores a los campos correspondientes
+document.getElementById('input111').value = input111.toFixed(2);
+document.getElementById('input112').value = input112.toFixed(2);
+document.getElementById('input113').value = input113.toFixed(2);
+document.getElementById('input114').value = input114.toFixed(2);
+document.getElementById('input115').value = input115.toFixed(2);
+document.getElementById('input116').value = input116.toFixed(2);
+document.getElementById('input117').value = input117.toFixed(2);
+document.getElementById('input118').value = input118.toFixed(2);
+document.getElementById('input119').value = input119.toFixed(2);
+document.getElementById('input120').value = input120.toFixed(2);
+
+    // Obtención de los valores de los inputs
+    const input10 = parseFloat(document.getElementById('input10').value) || 0;
+    const input11 = parseFloat(document.getElementById('input11').value) || 0;
+    const input12 = parseFloat(document.getElementById('input12').value) || 0;
+    const input13 = input19 + input25; // Esto es igual a la variable totalAdelantos
+    const input14 = totalAdelantosCheques; // Esto es igual a la variable totalAdelantosCheques
+    const input15 = input59;
+
+    document.getElementById('input13').value = input13.toFixed(2);
+    document.getElementById('input14').value = input14.toFixed(2);
+    document.getElementById('input15').value = input15.toFixed(2);
+        // Cálculo de la liquidación total (input18)
+    const input18 = input10 * 1.21;
+    document.getElementById('input18').value = input18.toFixed(2);
+
+    // Cálculo de la liquidación neta (input16)
+    const input16 = input18  - input11 - input12 - input13 - input14 - input15;
+    document.getElementById('input16').value = input16.toFixed(2);
+
+
+
+
+
+
+    // Para los adicionales
+    const input122 = parseFloat(document.getElementById('input122').value) || 0;
+    const input123 = input122 * 0.21;
+    document.getElementById('input123').value = input123.toFixed(2);
+
+    const input124 = input122 + input123;
+    document.getElementById('input124').value = input124.toFixed(2);
+
+    const input5 = input16 + input122 + totalDevolucionCheques - input28 - totalACobrar;
+    document.getElementById('input5').value = input5.toFixed(2);
+  }
+  
+
+  
+// Función para ejecutar calcular cada vez que se modifica un input
+function agregarEventos() {
+const inputs = [
+  "input1", "input2", "input3", "input4", "input6", "input7", "input8", "input9",
+  "input10", "input5", "input11", "input12", "input13", "input14", "input15",
+  "input19", "input22", "input25", "input28", "input31", "input20", "input23", 
+  "input26", "input29", "input32", "input36", "input40", "input44", "input48", 
+  "input52", "input37", "input41", "input45", "input49", "input53", "input38", 
+  "input42", "input46", "input50", "input54", "input58", "input62", "input66", 
+  "input70", "input59", "input63", "input67", "input71", "input79", "input81", 
+  "input83", "input85", "input87", "input89", "input91", "input94", "input95", 
+  "input98", "input101", "input104", "input107", "input106", "input111", "input112", 
+  "input113", "input114", "input115", "input116", "input117", "input118", "input119", 
+  "input120","input122", "input121", "input125", "input126", "input127", "input128", "input129"
+];
+
+    // Itera sobre todos los inputs y agrega el evento
+    inputs.forEach(id => {
+        const input = document.getElementById(id);
+        if (input) {
+            input.addEventListener('input', calcular); // o 'change', dependiendo de cuándo quieras que se ejecute
+        }
+    });
+}
+// Llamar a esta función cuando se cargue la página
+window.addEventListener('load', agregarEventos);
+
+function exportarCSV() {
+    const headers = ["Campo", "Valor"];
+    let rows = [];
+
+    // Obtener todos los inputs y sus valores
+    document.querySelectorAll("input").forEach(input => {
+        rows.push([input.id, input.value]);
+    });
+
+    // Convertir a formato CSV
+    let csvContent = "data:text/csv;charset=utf-8," 
+        + [headers, ...rows].map(e => e.join(",")).join("\n");
+
+    // Crear un enlace de descarga
+    let encodedUri = encodeURI(csvContent);
+    let link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "datos_viaje.csv");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+
+
+</script>
+</body>
+</html>
