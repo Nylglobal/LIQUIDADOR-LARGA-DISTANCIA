@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -56,6 +56,10 @@
     }
 }
 
+#input124, #input16, #input5,#input73,#input110,#input121 {
+  background-color: #fafacb;   /* fondo */
+  color: black;             /* texto */
+}
 
 
 
@@ -135,7 +139,7 @@
   </td>
 </tr>
 <tr>
-  <td class="tg-6e8n" colspan="2">--- TARIFA MAS IVA ---</td>
+  <td class="tg-6e8n" colspan="2">--- MAS IVA ---</td>
   <td class="tg-0pky" colspan="2">
     <input type="number" id="input18" step="0.01" class="input-ajustado"  disabled />
   </td>
@@ -415,7 +419,7 @@
     <td class="tg-0pky" colspan="2"><input type="text" id="input86" class="input-ajustado"></td>
   </tr>
   <tr>
-    <td class="tg-6e8n">OTRO</td>
+    <td class="tg-6e8n">UREA</td>
     <td class="tg-0pky"><input type="number" id="input87" class="input-ajustado" step="0.01"></td>
     <td class="tg-0pky" colspan="2"><input type="text" id="input88" class="input-ajustado"></td>
   </tr>
@@ -795,27 +799,53 @@ const inputs = [
 window.addEventListener('load', agregarEventos);
 
 function exportarCSV() {
-    const headers = ["Campo", "Valor"];
-    let rows = [];
+    const campos = [
+        { id: "input1", label: "VIAJE" },
+        { id: "input10", label: "TARIFA" },
+        { id: "input16", label: "LIQUIDACION NETA" },
+        { id: "input5", label: "RECAUDADO" },
+        { id: "input124", label: "TOTAL ADICIONAL" },
+        { id: "input73", label: "TOTAL LITROS COMBUSTIBLE" },
+        { id: "input74", label: "TOTAL GASTO DE COMBUSTIBLE" },
+        { id: "input79", label: "PEAJES" },
+        { id: "input81", label: "RESPUESTOS" },
+        { id: "input83", label: "LAVADERO" },
+        { id: "input85", label: "FERRETERIA" },
+        { id: "input87", label: "UREA" },
+        { id: "input89", label: "OTROS" },
+        { id: "input93", label: "TOTAL GASTOS" },
+        { id: "input110", label: "TOTAL KMS RECORRIDOS" },
+        { id: "input121", label: "TOTAL A COBRAR" }
+    ];
 
-    // Obtener todos los inputs y sus valores
-    document.querySelectorAll("input").forEach(input => {
-        rows.push([input.id, input.value]);
-    });
+    const viaje = document.getElementById("input1")?.value.trim();
+    if (!viaje) {
+        alert("El campo VIAJE es obligatorio.");
+        return;
+    }
 
-    // Convertir a formato CSV
-    let csvContent = "data:text/csv;charset=utf-8," 
-        + [headers, ...rows].map(e => e.join(",")).join("\n");
+    // Usamos punto y coma como delimitador
+    const delimiter = ";";
 
-    // Crear un enlace de descarga
-    let encodedUri = encodeURI(csvContent);
-    let link = document.createElement("a");
-    link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "datos_viaje.csv");
+    const headers = campos.map(campo => campo.label).join(delimiter);
+    const values = campos.map(campo => {
+        const input = document.getElementById(campo.id);
+        return input ? input.value.replaceAll(",", ".") : "";
+    }).join(delimiter); // por si algún valor tiene comas, las cambiamos por punto
+
+    const csvString = headers + "\n" + values;
+    const blob = new Blob([csvString], { type: "text/csv;charset=utf-8;" });
+
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = (viaje || "datos_viaje") + ".csv";
+
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
 }
+
+
 
 
 
