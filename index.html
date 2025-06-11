@@ -765,7 +765,7 @@ document.getElementById('input120').value = input120.toFixed(2);
     const input124 = input122 + input123;
     document.getElementById('input124').value = input124.toFixed(2);
 
-    const input5 = input16 + input122 + totalDevolucionCheques - input28 - totalACobrar;
+    const input5 = input16 + input124 + totalDevolucionCheques - input28  - totalACobrar;
     document.getElementById('input5').value = input5.toFixed(2);
   }
   
@@ -800,12 +800,14 @@ window.addEventListener('load', agregarEventos);
 
 function exportarCSV() {
     const campos = [
-        { id: "input1", label: "VIAJE" },
+        { id: "input1", label: "NUM VIAJE" },
         { id: "input10", label: "TARIFA" },
-        { id: "input16", label: "LIQUIDACION NETA" },
-        { id: "input5", label: "RECAUDADO" },
-        { id: "input124", label: "TOTAL ADICIONAL" },
-        { id: "input73", label: "TOTAL LITROS COMBUSTIBLE" },
+        { id: "input16", label: "LIQUID. FINAL" },
+        { id: "input124", label: "ADICIONAL" },
+        { id: "input121", label: "PAGO A CHOFER" },
+        { id: "input5", label: "RECAUDACION" },
+
+        { id: "input73", label: "LTS TOTAL DE CARGAS" },
         { id: "input74", label: "TOTAL GASTO DE COMBUSTIBLE" },
         { id: "input79", label: "PEAJES" },
         { id: "input81", label: "RESPUESTOS" },
@@ -814,8 +816,8 @@ function exportarCSV() {
         { id: "input87", label: "UREA" },
         { id: "input89", label: "OTROS" },
         { id: "input93", label: "TOTAL GASTOS" },
-        { id: "input110", label: "TOTAL KMS RECORRIDOS" },
-        { id: "input121", label: "TOTAL A COBRAR" }
+        { id: "input110", label: "KMS RECORRIDOS" }
+        
     ];
 
     const viaje = document.getElementById("input1")?.value.trim();
